@@ -6,6 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
+                    args '-u root'
                     reuseNode true
                 }
             }
@@ -14,8 +15,6 @@ pipeline {
                     ls -la
                     node -v
                     npm -v
-                    mkdir -p .npm-cache
-                    npm config set cache $(pwd)/.npm-cache
                     npm ci
                 '''
             }
