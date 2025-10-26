@@ -6,7 +6,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:18-alpine'
-                    args '-u root'
+                    args '--network host'
                     reuseNode true
                 }
             }
