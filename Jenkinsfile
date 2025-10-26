@@ -15,9 +15,8 @@ pipeline {
                     node -v
                     npm -v
                     mkdir -p .npm-cache
-                    npm config set cache .npm-cache --global
+                    npm config set cache $(pwd)/.npm-cache
                     npm ci
-                    npm run build
                 '''
             }
         }
